@@ -12,6 +12,7 @@ public class ConverterInverter {
 	public static Book convert(BookPost book) {
 		Book b = new Book();
 		b.setTitle(book.getTitle());
+		b.setIsbn(book.getIsbn());
 		b.setReleaseDate(book.getReleaseDate());
 		b.setLastUpdateTime(Instant.now().toString());
 		b.setId(UUID.randomUUID().toString());
@@ -26,12 +27,12 @@ public class ConverterInverter {
 	public static Book convert(BookPut book) {
 		Book b = new Book();
 		b.setTitle(book.getTitle());
+		b.setIsbn(book.getIsbn());
 		b.setReleaseDate(book.getReleaseDate());
 		b.setLastUpdateTime(Instant.now().toString());
 		b.setId(UUID.randomUUID().toString());
 		b.setDisplayName(book.getDisplayName());
 		b.setDescription(book.getDescription());
-		b.setCreationTime(book.getCreationTime());
 		b.setCoverImage(book.getCoverImage());
 		b.setAuthors(book.getAuthors());
 		return b;

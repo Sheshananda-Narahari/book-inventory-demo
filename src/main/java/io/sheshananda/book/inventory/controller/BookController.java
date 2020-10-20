@@ -14,29 +14,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.sheshananda.book.inventory.bean.BookPost;
 import io.sheshananda.book.inventory.bean.BookPut;
+import io.sheshananda.book.inventory.bean.BookResponse;
 import io.sheshananda.book.inventory.exception.BookIdNotFoundException;
+import io.sheshananda.book.inventory.model.Book;
 import io.sheshananda.book.inventory.service.BookServiceImpl;
 import io.sheshananda.book.inventory.util.Validator;
 
 @RestController()
 @RequestMapping("/book")
-public class BookController<T> {
+public class BookController {
 
 	@Autowired()
-	BookServiceImpl<T> bookService;
+	BookServiceImpl bookService;
 
-	@SuppressWarnings("unchecked")
 	@PostMapping("/create")
 	public void createBook(BookPost book) {
 		Validator.validate(book);
-		bookService.createBook((T) book);
+		bookService.createBook(book);
 	}
 
-	@SuppressWarnings("unchecked")
 	@PutMapping("/update/{id}")
 	public void updateBook(@PathVariable("id") String id, BookPut book) {
 		Validator.validate(book);
-		bookService.updateBook(id, (T) book);
+		bookService.updateBook(id, book);
 	}
 
 	@DeleteMapping("/delete/{id}")
@@ -48,7 +48,7 @@ public class BookController<T> {
 	}
 
 	@GetMapping("/get/{id}")
-	public @ResponseBody T getBook(@PathVariable("id") String id) {
+	public @ResponseBody BookResponse getBook(@PathVariable("id") String id) {
 		if (id == null || id == "") {
 			throw new BookIdNotFoundException("book id cannot be empty ");
 		}
@@ -56,7 +56,7 @@ public class BookController<T> {
 	}
 
 	@GetMapping("/list")
-	public @ResponseBody List<T> listBook() {
+	public @ResponseBody List<Book> listBook() {
 		return bookService.listBook();
 	}
 

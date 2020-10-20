@@ -1,6 +1,6 @@
 package io.sheshananda.book.inventory.exception;
 
-public class BookIdNotFoundException extends RuntimeException {
+public class BookIdNotFoundException extends BookInventoryException {
 	/**
 		 * 
 		 */

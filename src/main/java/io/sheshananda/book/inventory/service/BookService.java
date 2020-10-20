@@ -4,15 +4,20 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-@Service
-public interface BookService<T> {
-	void createBook(T t);
+import io.sheshananda.book.inventory.bean.BookPost;
+import io.sheshananda.book.inventory.bean.BookPut;
+import io.sheshananda.book.inventory.bean.BookResponse;
+import io.sheshananda.book.inventory.model.Book;
 
-	void updateBook(String id, T t);
+@Service
+public interface BookService {
+	void createBook(BookPost book);
+
+	void updateBook(String id, BookPut book);
 
 	void deleteBook(String id);
 
-	T getBook(String id);
+	BookResponse getBook(String id);
 
-	List<T> listBook();
+	List<Book> listBook();
 }

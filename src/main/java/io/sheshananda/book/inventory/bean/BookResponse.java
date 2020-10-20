@@ -5,16 +5,18 @@ import java.util.List;
 public class BookResponse {
 	private String id;
 	private String title;
+	private String isbn;
 	private String displayName;
 	private String description;
 	private List<String> authors;
 	private String releaseDate;
 	private String coverImage;
 
-	public BookResponse(String id, String title, String displayName, String description, List<String> authors,
-			String releaseDate, String coverImage) {
+	public BookResponse(String id, String title, String isbn, String displayName, String description,
+			List<String> authors, String releaseDate, String coverImage) {
 		this.id = id;
 		this.title = title;
+		this.isbn = isbn;
 		this.displayName = displayName;
 		this.description = description;
 		this.authors = authors;
@@ -36,6 +38,14 @@ public class BookResponse {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getDisplayName() {
@@ -81,6 +91,7 @@ public class BookResponse {
 	public static class BookResponseBuilder {
 		private String id;
 		private String title;
+		private String isbn;
 		private String displayName;
 		private String description;
 		private List<String> authors;
@@ -94,6 +105,11 @@ public class BookResponse {
 
 		public BookResponseBuilder setTitle(String title) {
 			this.title = title;
+			return this;
+		}
+
+		public BookResponseBuilder setIsbn(String isbn) {
+			this.isbn = isbn;
 			return this;
 		}
 
@@ -123,7 +139,7 @@ public class BookResponse {
 		}
 
 		public BookResponse build() {
-			return new BookResponse(id, title, displayName, description, authors, releaseDate, coverImage);
+			return new BookResponse(id, title, isbn, displayName, description, authors, releaseDate, coverImage);
 		}
 
 	}

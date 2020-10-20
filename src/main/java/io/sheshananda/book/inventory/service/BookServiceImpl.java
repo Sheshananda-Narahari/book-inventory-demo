@@ -6,29 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.sheshananda.book.inventory.bean.BookPost;
+import io.sheshananda.book.inventory.bean.BookPut;
+import io.sheshananda.book.inventory.bean.BookResponse;
 import io.sheshananda.book.inventory.dao.BookDao;
 import io.sheshananda.book.inventory.exception.BookIdNotFoundException;
 import io.sheshananda.book.inventory.model.Book;
 import io.sheshananda.book.inventory.util.ConverterInverter;
 
 @Service
-public class BookServiceImpl<T> implements BookService<T> {
+public class BookServiceImpl implements BookService {
 
 	@Autowired(required = true)
 	private BookDao dao;
 
 	@Override
-	public void createBook(T book) {
-		dao.save(ConverterInverter.convert((BookPost) book));
+	public void createBook(BookPost book) {
+		dao.save(ConverterInverter.convert( book));
 	}
 
 	@Override
-	public void updateBook(String id, T book) {
+	public void updateBook(String id, BookPut book) {
 		Book b = dao.get(id);
 		if (b == null) {
 			throw new BookIdNotFoundException("invalid id ");
 		}
-		dao.update(ConverterInverter.convert((BookPost) book));
+		dao.update(ConverterInverter.convert( book));
 	}
 
 	@Override
@@ -41,12 +43,12 @@ public class BookServiceImpl<T> implements BookService<T> {
 	}
 
 	@Override
-	public T getBook(String id) {
-		return (T) ConverterInverter.convert(dao.get(id));
+	public BookResponse getBook(String id) {
+		return  ConverterInverter.convert(dao.get(id));
 	}
 
 	@Override
-	public List<T> listBook() {
-		return (List<T>) dao.list();
+	public List<Book> listBook() {
+		return (List<Book>) dao.list();
 	}
 }

@@ -1,12 +1,12 @@
 package io.sheshananda.book.inventory.exception;
 
-public class TitleCannotBeEmpty extends BookInventoryException {
+public class BookInventoryException extends RuntimeException {
 	/**
 		 * 
 		 */
 	private static final long serialVersionUID = 1L;
 
-	public TitleCannotBeEmpty(String msg) {
+	public BookInventoryException(String msg) {
 		super(msg);
 	}
 }

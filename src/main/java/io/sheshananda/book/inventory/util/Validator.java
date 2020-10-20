@@ -13,7 +13,7 @@ public class Validator {
 	}
 
 	public static void validate(BookPut p) {
-		if (p.getId() == null || p.getId() == "") {
+		if (p.getIsbn() == null || p.getIsbn() == "") {
 			throw new BookIdNotFoundException("book id cannot be empty ");
 		}
 	}

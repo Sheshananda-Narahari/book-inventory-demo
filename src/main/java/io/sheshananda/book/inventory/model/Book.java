@@ -12,6 +12,9 @@ public class Book {
 	@DynamoDBHashKey(attributeName = "ID")
 	private String id;
 
+	@DynamoDBHashKey(attributeName = "ISBN")
+	private String isbn;
+
 	@DynamoDBAttribute(attributeName = "TITLE")
 	private String title;
 
@@ -43,6 +46,14 @@ public class Book {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getTitle() {

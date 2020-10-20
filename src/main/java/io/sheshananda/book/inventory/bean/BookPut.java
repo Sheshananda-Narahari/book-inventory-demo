@@ -3,22 +3,13 @@ package io.sheshananda.book.inventory.bean;
 import java.util.List;
 
 public class BookPut {
-	private String id;
 	private String title;
+	private String isbn;
 	private String displayName;
 	private String description;
 	private List<String> authors;
 	private String releaseDate;
 	private String coverImage;
-	private String creationTime;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;
@@ -26,6 +17,14 @@ public class BookPut {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getDisplayName() {
@@ -66,14 +65,6 @@ public class BookPut {
 
 	public void setCoverImage(String coverImage) {
 		this.coverImage = coverImage;
-	}
-
-	public String getCreationTime() {
-		return creationTime;
-	}
-
-	public void setCreationTime(String creationTime) {
-		this.creationTime = creationTime;
 	}
 
 }

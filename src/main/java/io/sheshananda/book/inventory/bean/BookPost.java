@@ -4,6 +4,7 @@ import java.util.List;
 
 public class BookPost {
 	private String title;
+	private String isbn;
 	private String displayName;
 	private String description;
 	private List<String> authors;
@@ -16,6 +17,14 @@ public class BookPost {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getDisplayName() {
