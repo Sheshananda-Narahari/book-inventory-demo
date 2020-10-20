@@ -11,7 +11,7 @@ public class BookPut {
 	private String releaseDate;
 	private String coverImage;
 	private String creationTime;
-	
+
 	public String getId() {
 		return id;
 	}

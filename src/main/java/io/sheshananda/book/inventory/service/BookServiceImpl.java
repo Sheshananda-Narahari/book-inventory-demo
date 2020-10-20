@@ -16,7 +16,7 @@ public class BookServiceImpl<T> implements BookService<T> {
 
 	@Autowired(required = true)
 	private BookDao dao;
-	
+
 	@Override
 	public void createBook(T book) {
 		dao.save(ConverterInverter.convert((BookPost) book));

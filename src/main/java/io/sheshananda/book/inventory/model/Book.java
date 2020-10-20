@@ -11,29 +11,29 @@ public class Book {
 
 	@DynamoDBHashKey(attributeName = "ID")
 	private String id;
-	
+
 	@DynamoDBAttribute(attributeName = "TITLE")
 	private String title;
-	
+
 	@DynamoDBAttribute(attributeName = "DISPLAY_NAME")
 	private String displayName;
-	
+
 	@DynamoDBAttribute(attributeName = "DESCRIPTION")
 	private String description;
-	
+
 	@DynamoDBAttribute(attributeName = "AUTHORS")
 	private List<String> authors;
-	
+
 	@DynamoDBAttribute(attributeName = "RELEASE_DATE")
 	private String releaseDate;
-	
+
 	@DynamoDBAttribute(attributeName = "COVER_IMAGE")
 	private String coverImage;
 
 	// Metadata
 	@DynamoDBAttribute(attributeName = "CREATION_TIME")
 	private String creationTime;
-	
+
 	@DynamoDBAttribute(attributeName = "LAST_UPDATE_TIME")
 	private String lastUpdateTime;
 
