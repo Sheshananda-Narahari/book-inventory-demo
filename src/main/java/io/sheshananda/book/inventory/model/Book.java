@@ -12,7 +12,7 @@ public class Book {
 	@DynamoDBHashKey(attributeName = "ID")
 	private String id;
 
-	@DynamoDBHashKey(attributeName = "ISBN")
+	@DynamoDBAttribute(attributeName = "ISBN")
 	private String isbn;
 
 	@DynamoDBAttribute(attributeName = "TITLE")

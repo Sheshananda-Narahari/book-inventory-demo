@@ -12,6 +12,10 @@ public class BookResponse {
 	private String releaseDate;
 	private String coverImage;
 
+	public BookResponse() {
+
+	}
+
 	public BookResponse(String id, String title, String isbn, String displayName, String description,
 			List<String> authors, String releaseDate, String coverImage) {
 		this.id = id;
