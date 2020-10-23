@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService {
 		if (b == null) {
 			throw new BookIdNotFoundException("invalid id ");
 		}
-		dao.update(ConverterInverter.convert( book));
+		dao.update(ConverterInverter.convert( book, id));
 	}
 
 	@Override

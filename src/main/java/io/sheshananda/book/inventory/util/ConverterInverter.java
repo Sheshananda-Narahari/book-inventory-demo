@@ -15,7 +15,7 @@ public class ConverterInverter {
 		b.setIsbn(book.getIsbn());
 		b.setReleaseDate(book.getReleaseDate());
 		b.setLastUpdateTime(Instant.now().toString());
-		b.setId(UUID.randomUUID().toString());
+		b.setId("BK-"+UUID.randomUUID().toString());
 		b.setDisplayName(book.getDisplayName());
 		b.setDescription(book.getDescription());
 		b.setCreationTime(Instant.now().toString());
@@ -24,13 +24,13 @@ public class ConverterInverter {
 		return b;
 	}
 
-	public static Book convert(BookPut book) {
+	public static Book convert(BookPut book, String id) {
 		Book b = new Book();
+		b.setId(id);
 		b.setTitle(book.getTitle());
 		b.setIsbn(book.getIsbn());
 		b.setReleaseDate(book.getReleaseDate());
 		b.setLastUpdateTime(Instant.now().toString());
-		b.setId(UUID.randomUUID().toString());
 		b.setDisplayName(book.getDisplayName());
 		b.setDescription(book.getDescription());
 		b.setCoverImage(book.getCoverImage());
@@ -40,7 +40,7 @@ public class ConverterInverter {
 
 	public static BookResponse convert(Book book) {
 		return new BookResponse.BookResponseBuilder().setAuthors(book.getAuthors()).setCoverImage(book.getCoverImage())
-				.setDescription(book.getDescription()).setDisplayName(book.getDisplayName())
+				.setDescription(book.getDescription()).setDisplayName(book.getDisplayName()).setIsbn(book.getIsbn())
 				.setReleaseDate(book.getReleaseDate()).setTitle(book.getTitle()).setId(book.getId()).build();
 	}
 
